@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!-- Define el documento como HTML5 -->
+
+<html>
+<!-- Inicio del documento HTML -->
+
+<head>
+<title>Crear usuario</title>
+<!-- Título que se muestra en la pestaña del navegador -->
+
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- Importa Tailwind CSS desde internet para usar estilos modernos -->
+</head>
+
+<!-- Fondo oscuro, centrado vertical y horizontal en toda la pantalla -->
+<body class="bg-slate-900 flex items-center justify-center h-screen">
+
+<!-- Contenedor principal del formulario -->
+<!-- Fondo blanco, bordes redondeados, padding y ancho fijo -->
+<div class="bg-white p-8 rounded-xl w-96">
+
+<!-- Título del formulario -->
+<h2 class="text-2xl font-bold mb-4">Crear usuario</h2>
+
+<!-- Formulario para crear usuario -->
+<!-- method="post" envía los datos al servidor Flask -->
+<form method="post" class="space-y-3">
+
+<!-- Campo para escribir el nombre del usuario -->
+<input name="nombre" placeholder="Nombre"
+class="w-full border p-2 rounded-lg">
+<!-- name="nombre" permite enviar el nombre al backend -->
+
+<!-- Campo para escribir el usuario/login -->
+<input name="usuario" placeholder="Usuario"
+class="w-full border p-2 rounded-lg">
+<!-- Este usuario será el que se use para iniciar sesión -->
+
+<!-- Lista desplegable de roles -->
+<select name="rol" class="w-full border p-2 rounded-lg">
+
+{% for r in roles %}
+<!-- Ciclo de Flask/Jinja que recorre la lista de roles -->
+<option>{{r}}</option>
+<!-- Muestra cada rol disponible -->
+{% endfor %}
+
+</select>
+
+<!-- Botón para enviar el formulario -->
+<button class="bg-blue-600 text-white w-full p-2 rounded-lg">
+Crear usuario
+</button>
+<!-- Al presionar se envían los datos al servidor -->
+
+</form>
+</div>
+
+</body>
+</html>

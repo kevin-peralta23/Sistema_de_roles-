@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<!-- Define el documento como HTML5 -->
+
+<html lang="es">
+<!-- Idioma del documento: español -->
+
+<head>
+<meta charset="UTF-8">
+<!-- Permite usar caracteres especiales como ñ y acentos -->
+
+<title>Administrador</title>
+<!-- Título de la pestaña del navegador -->
+
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- Importa Tailwind CSS para diseño moderno -->
+</head>
+
+<!-- Fondo azul y altura mínima de pantalla completa -->
+<body class="bg-blue-600 min-h-screen">
+
+<!-- Encabezado del panel -->
+<div class="text-center text-white pt-10">
+    <h1 class="text-4xl font-bold">Panel Administrador</h1>
+    <!-- Título principal -->
+
+    <p class="mb-10">Bienvenido {{session.usuario}}</p>
+    <!-- Muestra el nombre del usuario que inició sesión -->
+</div>
+
+<!-- Botones del panel -->
+<div class="flex justify-center gap-6">
+
+<!-- Botón crear usuario -->
+<a href="/crear_usuario" 
+class="bg-white text-blue-600 px-6 py-3 rounded-xl font-bold shadow-lg hover:bg-gray-200">
+    Crear Usuario
+</a>
+<!-- Redirige a la vista para crear usuarios -->
+
+<!-- Botón crear rol -->
+<a href="/crear_rol">
+    <button class="bg-yellow-400 text-black px-6 py-3 rounded-xl font-bold shadow hover:bg-yellow-500">
+        Crear rol
+    </button>
+</a>
+<!-- Permite crear nuevos roles -->
+
+<!-- Botón ver usuarios -->
+<button onclick="mostrar()" 
+class="bg-yellow-400 px-6 py-3 rounded-xl font-bold shadow-lg hover:bg-yellow-300">
+    Ver Usuarios
+</button>
+<!-- Ejecuta función JavaScript para mostrar tabla -->
+
+<!-- Botón cerrar sesión -->
+<a href="/logout" 
+class="bg-red-500 text-white px-6 py-3 rounded-xl font-bold shadow-lg hover:bg-red-600">
+    Cerrar sesión
+</a>
+<!-- Cierra sesión y regresa al login -->
+
+</div>
+
+<!-- Tabla de usuarios -->
+<div id="tabla" class="hidden mt-10 flex justify-center">
+<!-- hidden hace que la tabla esté oculta al inicio -->
+
+<div class="bg-white p-6 rounded-xl shadow-xl w-2/3">
+<h2 class="text-2xl font-bold mb-4 text-center">Usuarios registrados</h2>
+
+<!-- Tabla -->
+<table class="w-full text-center border">
+
+<!-- Encabezados -->
+<tr class="bg-blue-500 text-white">
+    <th class="p-2">Usuario</th>
+    <th class="p-2">Rol</th>
+    <th class="p-2">Contraseña</th>
+</tr>
+
+<!-- Ciclo que recorre todos los usuarios -->
+{% for u in usuarios %}
+<tr class="border">
+
+<!-- Muestra nombre de usuario -->
+<td class="p-2">{{u.usuario}}</td>
+
+<!-- Muestra rol -->
+<td class="p-2">{{u.rol}}</td>
+
+<!-- Muestra contraseña -->
+<td class="p-2">{{u.password}}</td>
+
+</tr>
+{% endfor %}
+
+</table>
+</div>
+</div>
+
+<!-- Script para mostrar/ocultar tabla -->
+<script>
+function mostrar(){
+    // Busca el div de la tabla y alterna la clase hidden
+    document.getElementById("tabla").classList.toggle("hidden");
+}
+</script>
+
+</body>
+</html>

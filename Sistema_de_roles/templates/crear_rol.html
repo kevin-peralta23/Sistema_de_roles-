@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!-- Define el documento como HTML5 -->
+
+<html lang="es">
+<!-- Idioma del documento en español -->
+
+<head>
+<meta charset="UTF-8">
+<!-- Permite usar caracteres especiales como ñ y acentos -->
+
+<title>Crear Rol</title>
+<!-- Título que aparece en la pestaña del navegador -->
+
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- Importa Tailwind CSS para el diseño moderno -->
+</head>
+
+<!-- Fondo oscuro y contenido centrado en toda la pantalla -->
+<body class="bg-slate-900 flex items-center justify-center min-h-screen">
+
+<!-- Contenedor principal del formulario -->
+<div class="bg-white p-8 rounded-2xl shadow-2xl w-96">
+<!-- Fondo blanco, bordes redondeados, sombra y ancho fijo -->
+
+    <!-- Título del formulario -->
+    <h2 class="text-2xl font-bold text-center mb-6">Crear nuevo rol</h2>
+
+    <!-- Formulario para crear un rol -->
+    <form method="POST">
+    <!-- method POST envía los datos al servidor Flask -->
+
+        <!-- Campo para escribir el nombre del rol -->
+        <input type="text" name="rol" placeholder="Nombre del rol"
+        class="w-full mb-4 p-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
+        required>
+        <!-- required obliga a escribir algo antes de enviar -->
+
+        <!-- Botón guardar rol -->
+        <button class="w-full bg-blue-600 text-white p-3 rounded-lg font-bold hover:bg-blue-700">
+            Guardar rol
+        </button>
+        <!-- Envía el rol al servidor -->
+
+    </form>
+
+    <!-- Botón para regresar al panel administrador -->
+    <a href="/admin">
+        <button class="w-full mt-3 bg-gray-500 text-white p-2 rounded-lg hover:bg-gray-600">
+            Volver
+        </button>
+    </a>
+    <!-- Redirige al panel del administrador -->
+
+</div>
+
+</body>
+</html>
