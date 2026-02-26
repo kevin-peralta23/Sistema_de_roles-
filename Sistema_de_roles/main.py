@@ -22,7 +22,7 @@ roles = ["Administrador", "Maestro", "Alumno"]
 usuarios = [
     {
         "usuario": "admin",          # Nombre de usuario
-        "password": "admin123",      # Contraseña del admin
+        "password": "guadalupe_21",      # Contraseña del admin
         "rol": "Administrador"       # Rol asignado
     }
 ]
